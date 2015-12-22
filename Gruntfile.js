@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    livereload: true                    
+                    livereload: true                   
                 }
             }
         },
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-connect');
-    grunt.registerTask('watch', [
+    grunt.registerTask('livereload', [
         'connect',
         'watch'
     ]);

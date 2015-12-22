@@ -17,7 +17,7 @@
             <input type="range" step="1" min="{{ctrl.minHeightRange}}" max="{{ctrl.maxHeightRange}}" ng-model="ctrl.heightValue"/>
             {{ctrl.maxHeightRange | height:false}}
             <br/>
-            {{ctrl.userProfileService.heightInches | height}}
+            {{ctrl.userProfile.heightInches | height}}
         </div>
     </div>
 </script>
@@ -61,11 +61,11 @@
                       button-text="ctrl.uomService.usMeasure | uom"
                       toggle-function="ctrl.uomService.toggle()"></toggle-block>
     </div>
-    <!--<div ng-controller="userProfileCtrl as ctrl">
+    <div ng-controller="userProfileCtrl as ctrl">
         <form name="ctrl.form" nosubmi="">
             <toggle-block label="Click to Toggle Gender:"
-                          button-text="ctrl.userProfileService.isMale | gender"
-                          toggle-function="ctrl.userProfileService.toggleGender()"></toggle-block>
+                          button-text="ctrl.userProfile.isMale | gender"
+                          toggle-function="ctrl.userProfile.toggleGender()"></toggle-block>
             <div ng-include="'height.html'"></div>
             <div ng-include="'weight.html'"></div>
             <div ng-include="'age.html'"></div>
@@ -90,7 +90,7 @@
             <h1>THR (50%-85%):</h1>
             <h2>{{ctrl.thrValue.min}} &mdash; {{ctrl.thrValue.max}} BPM</h2>
         </div>
-    </div>-->
+    </div>
 
 </body>
 </html>
