@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Health Calculator App</title>
+    <link rel="stylesheet" type="text/css" href="content/style/main.css"/>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="dist/app.js"></script>
+</head>
+<body ng-app="healthApp">
+
+<script type="text/ng-template" id="height.html">
+    <div class="unit">
+        <div class="label">Height:</div>
+        <div class="labelTarget">
+            {{ctrl.minHeightRange | height:false}}
+            <input type="range" step="1" min="{{ctrl.minHeightRange}}" max="{{ctrl.maxHeightRange}}" ng-model="ctrl.heightValue"/>
+            {{ctrl.maxHeightRange | height:false}}
+            <br/>
+            {{ctrl.userProfileService.heightInches | height}}
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="weight.html">
+    <div class="unit">
+        <div class="label">Weight ({{ctrl.minWeightRange}} - {{ctrl.maxWeightRange}}):</div>
+        <div class="labelTarget">
+            <input name="weight"
+                   id="weight"
+                   type="number"
+                   required=""
+                   ng-class="{ error : ctrl.form.weight.$invalid }"
+                   ng-model="ctrl.weightValue"
+                   min="{{ctrl.minWeightRange}}"
+                   max="{{ctrl.maxWeightRange}}"/>
+            {{ctrl.uomService.usMeasure | weight}}
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="age.html">
+    <div class="unit">
+        <div class="label">Age (13 - 120):</div>
+        <div class="labelTarget">
+            <input name="age"
+                   min="13"
+                   max="120"
+                   id="age"
+                   type="number"
+                   required=""
+                   ng-class="{ error : ctrl.form.age.$invalid }"
+                   ng-model="ctrl.ageValue"/>years
+        </div>
+    </div>
+</script>
+
+    <h1>Health Calculator</h1>
+    <div ng-controller="uomCtrl as ctrl">
+        <toggle-block label="Click to Toggle Unit of Measure:"
+                      button-text="ctrl.uomService.usMeasure | uom"
+                      toggle-function="ctrl.uomService.toggle()"></toggle-block>
+    </div>
+    <!--<div ng-controller="userProfileCtrl as ctrl">
+        <form name="ctrl.form" nosubmi="">
+            <toggle-block label="Click to Toggle Gender:"
+                          button-text="ctrl.userProfileService.isMale | gender"
+                          toggle-function="ctrl.userProfileService.toggleGender()"></toggle-block>
+            <div ng-include="'height.html'"></div>
+            <div ng-include="'weight.html'"></div>
+            <div ng-include="'age.html'"></div>
+        </form>
+    </div>
+
+    <div class="break"></div>
+
+    <div ng-controller="formulaCtrl as ctrl">
+        <div class="tile" title="Basal Metabolic Rate">
+            <h1>BMR:</h1>
+            <h2>{{ctrl.bmrValue}} Calories</h2>
+        </div>
+        <div class="tile"
+             ng-class="ctrl.bmiValue | bmi"
+             title="Body Mass Index">
+            <h1>BMI:</h1>
+            <h2>{{ctrl.bmiValue}}</h2>
+            <b>{{ctrl.bmiValue | bmi}}</b>
+        </div>
+        <div class="tile" title="Target Heart Rate">
+            <h1>THR (50%-85%):</h1>
+            <h2>{{ctrl.thrValue.min}} &mdash; {{ctrl.thrValue.max}} BPM</h2>
+        </div>
+    </div>-->
+
+</body>
+</html>
