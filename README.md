@@ -6,6 +6,7 @@ The [Angular 1.x Health App](https://github.com/JeremyLikness/AngularHealthApp) 
 2. `git clone https://github.com/JeremyLikness/AngularES6HealthApp.git`
 3. `cd Angular2HealthApp`
 4. `npm install`
-5. `npm run-script build`
-6. `npm run-script connect`
-7. Navigate to the port indicated
+5. `npm install -g grunt-cli`
+6. `grunt build`
+7. `grunt connect`
+8. Navigate to the port indicated
